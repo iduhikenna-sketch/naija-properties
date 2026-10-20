@@ -3,595 +3,83 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>Naija Properties | Your Home, Your Investment</title>
-
-  <meta name="description"
-        content="Discover properties to buy, rent, or sell across Nigeria. Find your next home with Naija Properties.">
-
+  <meta name="description" content="Discover properties to buy, rent, or sell across Nigeria. Find your next home with Naija Properties.">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    :root {
-      --blue: #103b70;
-      --dark-blue: #08264b;
-      --gold: #e9b949;
-      --white: #ffffff;
-      --light: #f4f7fb;
-      --text: #26364a;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      color: var(--text);
-      background: var(--light);
-      line-height: 1.6;
-    }
-
-    header {
-      background: var(--white);
-      padding: 15px 6%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 15px;
-      flex-wrap: wrap;
-      box-shadow: 0 2px 12px #0000000d;
-    }
-
-    .logo {
-      color: var(--blue);
-      font-size: 23px;
-      font-weight: bold;
-    }
-
-    .logo span {
-      color: var(--gold);
-    }
-
-    nav {
-      display: flex;
-      align-items: center;
-      gap: 17px;
-      flex-wrap: wrap;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: var(--blue);
-      font-size: 14px;
-      font-weight: bold;
-    }
-
-    .nav-button {
-      background: var(--blue);
-      color: white !important;
-      padding: 10px 15px;
-      border-radius: 6px;
-    }
-
-    .hero {
-      min-height: 440px;
-      padding: 70px 6%;
-      display: flex;
-      align-items: center;
-      background:
-        linear-gradient(90deg, rgba(5, 29, 58, .94), rgba(5, 29, 58, .43)),
-        url("https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1800&q=85")
-        center/cover;
-      color: white;
-    }
-
-    .hero-content {
-      max-width: 700px;
-    }
-
-    .badge {
-      display: inline-block;
-      background: var(--gold);
-      color: var(--dark-blue);
-      padding: 6px 13px;
-      border-radius: 20px;
-      font-size: 12px;
-      font-weight: bold;
-      margin-bottom: 16px;
-    }
-
-    .hero h1 {
-      font-size: clamp(34px, 6vw, 55px);
-      line-height: 1.15;
-      margin-bottom: 18px;
-    }
-
-    .hero h1 span {
-      color: var(--gold);
-    }
-
-    .hero p {
-      font-size: 17px;
-      margin-bottom: 25px;
-      max-width: 570px;
-    }
-
-    .actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-bottom: 25px;
-    }
-
-    .btn {
-      display: inline-block;
-      border: none;
-      padding: 12px 22px;
-      border-radius: 6px;
-      font-weight: bold;
-      font-size: 14px;
-      text-decoration: none;
-      cursor: pointer;
-    }
-
-    .btn-gold {
-      background: var(--gold);
-      color: var(--dark-blue);
-    }
-
-    .btn-white {
-      background: white;
-      color: var(--blue);
-    }
-
-    .search-box {
-      max-width: 760px;
-      padding: 18px;
-      background: white;
-      border-radius: 10px;
-      display: grid;
-      grid-template-columns: 1fr 1fr auto;
-      gap: 10px;
-      box-shadow: 0 8px 25px #00000020;
-    }
-
-    .search-box input,
-    .search-box select {
-      width: 100%;
-      min-width: 0;
-      padding: 13px;
-      border: 1px solid #dce3ed;
-      border-radius: 6px;
-      background: white;
-      color: var(--text);
-    }
-
-    .search-box button {
-      background: var(--blue);
-      color: white;
-      border: none;
-      border-radius: 6px;
-      padding: 12px 20px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    .section {
-      padding: 55px 6%;
-    }
-
-    .section-heading {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-
-    .section-heading h2 {
-      color: var(--blue);
-      font-size: 29px;
-      margin-bottom: 8px;
-    }
-
-    .section-heading p {
-      color: #68788c;
-    }
-
-    .property-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 22px;
-    }
-
-    .property-card {
-      background: white;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 5px 20px #102f5010;
-      transition: transform .2s;
-    }
-
-    .property-card:hover {
-      transform: translateY(-4px);
-    }
-
-    .property-card img {
-      width: 100%;
-      height: 210px;
-      object-fit: cover;
-      display: block;
-    }
-
-    .property-info {
-      padding: 18px;
-    }
-
-    .property-tag {
-      display: inline-block;
-      background: #fff3d1;
-      color: #805c08;
-      font-size: 11px;
-      font-weight: bold;
-      padding: 4px 9px;
-      border-radius: 4px;
-      margin-bottom: 10px;
-    }
-
-    .property-info h3 {
-      color: var(--blue);
-      font-size: 19px;
-      margin-bottom: 5px;
-    }
-
-    .location {
-      color: #718096;
-      font-size: 13px;
-      margin-bottom: 12px;
-    }
-
-    .price {
-      color: var(--blue);
-      font-size: 21px;
-      font-weight: bold;
-      margin-bottom: 14px;
-    }
-
-    .property-details {
-      display: flex;
-      justify-content: space-between;
-      gap: 8px;
-      border-top: 1px solid #edf0f5;
-      padding-top: 12px;
-      font-size: 12px;
-      color: #65758a;
-    }
-
-    .property-info .btn {
-      margin-top: 15px;
-      text-align: center;
-      width: 100%;
-      background: var(--blue);
-      color: white;
-    }
-
-    .note {
-      margin-top: 22px;
-      text-align: center;
-      font-size: 12px;
-      color: #718096;
-    }
-
-    .sell-banner {
-      margin: 0 6% 55px;
-      padding: 35px;
-      background: var(--dark-blue);
-      color: white;
-      border-radius: 12px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .sell-banner h2 {
-      margin-bottom: 8px;
-    }
-
-    footer {
-      background: #061c36;
-      color: white;
-      padding: 30px 6%;
-      text-align: center;
-    }
-
-    footer p {
-      font-size: 13px;
-      margin: 6px 0;
-      color: #d1dceb;
-    }
-
-    @media (max-width: 800px) {
-      header {
-        padding: 15px 5%;
-      }
-
-      nav {
-        gap: 12px;
-      }
-
-      .property-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .search-box {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .search-box button {
-        grid-column: 1 / -1;
-      }
-    }
-
-    @media (max-width: 520px) {
-      .logo {
-        font-size: 21px;
-      }
-
-      nav {
-        width: 100%;
-        justify-content: space-between;
-        gap: 10px;
-      }
-
-      nav a {
-        font-size: 12px;
-      }
-
-      .hero {
-        padding: 48px 5%;
-        min-height: 560px;
-      }
-
-      .hero p {
-        font-size: 15px;
-      }
-
-      .search-box {
-        grid-template-columns: 1fr;
-        padding: 13px;
-      }
-
-      .search-box button {
-        grid-column: auto;
-      }
-
-      .section {
-        padding: 40px 5%;
-      }
-
-      .section-heading h2 {
-        font-size: 25px;
-      }
-
-      .property-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .property-card img {
-        height: 230px;
-      }
-
-      .sell-banner {
-        margin: 0 5% 40px;
-        padding: 25px;
-      }
-    }
+    *{margin:0;padding:0;box-sizing:border-box}:root{--blue:#103b70;--dark-blue:#08264b;--gold:#e9b949;--white:#fff;--light:#f4f7fb;--text:#26364a}
+    body{font-family:Arial,sans-serif;color:var(--text);background:var(--light);line-height:1.6}header{background:#fff;padding:15px 6%;display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap;box-shadow:0 2px 12px #0000000d}
+    .logo{color:var(--blue);font-size:23px;font-weight:bold}.logo span{color:var(--gold)}nav{display:flex;align-items:center;gap:17px;flex-wrap:wrap}nav a{text-decoration:none;color:var(--blue);font-size:14px;font-weight:bold}.nav-button{background:var(--blue);color:white!important;padding:10px 15px;border-radius:6px}
+    .hero{min-height:440px;padding:70px 6%;display:flex;align-items:center;background:linear-gradient(90deg,rgba(5,29,58,.94),rgba(5,29,58,.43)),url("https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1800&q=85") center/cover;color:white}.hero-content{max-width:760px}.badge{display:inline-block;background:var(--gold);color:var(--dark-blue);padding:6px 13px;border-radius:20px;font-size:12px;font-weight:bold;margin-bottom:16px}.hero h1{font-size:clamp(34px,6vw,55px);line-height:1.15;margin-bottom:18px}.hero h1 span{color:var(--gold)}.hero p{font-size:17px;margin-bottom:25px;max-width:570px}
+    .actions{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:25px}.btn{display:inline-block;border:none;padding:12px 22px;border-radius:6px;font-weight:bold;font-size:14px;text-decoration:none;cursor:pointer}.btn-gold{background:var(--gold);color:var(--dark-blue)}.btn-white{background:#fff;color:var(--blue)}
+    .search-box{max-width:760px;padding:18px;background:#fff;border-radius:10px;display:grid;grid-template-columns:1fr 1fr auto;gap:10px;box-shadow:0 8px 25px #00000020}.search-box input,.search-box select{width:100%;min-width:0;padding:13px;border:1px solid #dce3ed;border-radius:6px;background:#fff;color:var(--text)}.search-box button{background:var(--blue);color:white;border:none;border-radius:6px;padding:12px 20px;font-weight:bold;cursor:pointer}
+    .section{padding:55px 6%}.section-heading{text-align:center;margin-bottom:30px}.section-heading h2{color:var(--blue);font-size:29px;margin-bottom:8px}.section-heading p{color:#68788c}.property-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}.property-card{background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 5px 20px #102f5010;transition:transform .2s}.property-card:hover{transform:translateY(-4px)}.property-card img{width:100%;height:210px;object-fit:cover;display:block}.property-info{padding:18px}.property-tag{display:inline-block;background:#fff3d1;color:#805c08;font-size:11px;font-weight:bold;padding:4px 9px;border-radius:4px;margin-bottom:10px}.property-info h3{color:var(--blue);font-size:19px;margin-bottom:5px}.location{color:#718096;font-size:13px;margin-bottom:12px}.price{color:var(--blue);font-size:21px;font-weight:bold;margin-bottom:14px}.property-details{display:flex;justify-content:space-between;gap:8px;border-top:1px solid #edf0f5;padding-top:12px;font-size:12px;color:#65758a}.property-info .btn{margin-top:15px;text-align:center;width:100%;background:var(--blue);color:#fff}.note{margin-top:22px;text-align:center;font-size:12px;color:#718096}
+    .sell-banner{margin:0 6% 55px;padding:35px;background:var(--dark-blue);color:#fff;border-radius:12px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}.sell-banner h2{margin-bottom:8px}
+    .account-section{background:#fff;margin:0 6% 50px;padding:28px;border-radius:12px;box-shadow:0 5px 20px #102f5010}.account-section h2{color:var(--blue);margin-bottom:8px}.account-section p{color:#68788c;margin-bottom:15px}.account-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.account-form input{width:100%;padding:12px;border:1px solid #dce3ed;border-radius:6px;font:inherit}.account-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}.primary-button{background:var(--blue);color:#fff;border:0;border-radius:6px;padding:12px 18px;font-weight:bold;cursor:pointer}.secondary-button{background:#eef3fa;color:var(--blue);border:0;border-radius:6px;padding:12px 18px;font-weight:bold;cursor:pointer}.status-message{margin-top:12px;padding:10px 12px;border-radius:6px;background:#f4f7fb;color:var(--text);font-size:14px;overflow-wrap:anywhere}.status-message:empty{display:none}.status-message.success{background:#e7f7ed;color:#17663a}.status-message.error{background:#fff0f0;color:#9a2525}
+    footer{background:#061c36;color:white;padding:30px 6%;text-align:center}footer p{font-size:13px;margin:6px 0;color:#d1dceb}
+    @media(max-width:800px){header{padding:15px 5%}nav{gap:12px}.property-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.search-box{grid-template-columns:1fr 1fr}.search-box button{grid-column:1/-1}}
+    @media(max-width:520px){.logo{font-size:21px}nav{width:100%;justify-content:space-between;gap:10px}nav a{font-size:12px}.hero{padding:48px 5%;min-height:560px}.hero p{font-size:15px}.search-box{grid-template-columns:1fr;padding:13px}.search-box button{grid-column:auto}.section{padding:40px 5%}.section-heading h2{font-size:25px}.property-grid{grid-template-columns:1fr}.property-card img{height:230px}.sell-banner{margin:0 5% 40px;padding:25px}.account-section{margin:0 5% 40px;padding:20px}.account-form{grid-template-columns:1fr}}
   </style>
 </head>
-
 <body>
-
-  <header>
-    <div class="logo">NAIJA <span>PROPERTIES</span></div>
-
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#properties">Properties</a>
-      <a href="#buy">Buy</a>
-      <a href="#rent">Rent</a>
-      <a href="#sell">Sell</a>
-      <a href="#sell" class="nav-button">List Property</a>
-    </nav>
-  </header>
-
-  <section class="hero" id="home">
-    <div class="hero-content">
-      <span class="badge">YOUR TRUSTED PROPERTY DESTINATION</span>
-
-      <h1>Your Home,<br><span>Your Investment.</span></h1>
-
-      <p>
-        Discover houses, apartments, land, and commercial properties
-        across Nigeria. Your next property journey starts here.
-      </p>
-
-      <div class="actions">
-        <a href="#buy" class="btn btn-gold">Explore Properties</a>
-        <a href="#sell" class="btn btn-white">List Your Property</a>
-      </div>
-
-      <form class="search-box" id="propertySearch">
-        <input
-          type="text"
-          id="locationSearch"
-          placeholder="Enter city, e.g. Lagos"
-          aria-label="Search by location">
-
-        <select id="propertyType" aria-label="Property type">
-          <option value="">Buy or Rent?</option>
-          <option value="buy">Buy</option>
-          <option value="rent">Rent</option>
-        </select>
-
-        <button type="submit">Search</button>
-      </form>
-    </div>
-  </section>
-
-  <section class="section" id="properties">
-    <div class="section-heading">
-      <h2>Featured Properties</h2>
-      <p>Explore property examples from our planned marketplace.</p>
-    </div>
-
-    <div class="property-grid" id="propertyGrid">
-
-      <article class="property-card" data-location="lagos" data-type="buy">
-        <img
-          src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80"
-          alt="Modern luxury house"
-          loading="lazy">
-
-        <div class="property-info">
-          <span class="property-tag">FOR SALE · DEMO</span>
-          <h3>Modern Family House</h3>
-          <p class="location">📍 Lagos, Nigeria</p>
-          <p class="price">₦85,000,000</p>
-
-          <div class="property-details">
-            <span>🛏 4 Bedrooms</span>
-            <span>🛁 4 Bathrooms</span>
-          </div>
-
-          <a href="#sell" class="btn">Enquire About Property</a>
-        </div>
-      </article>
-
-      <article class="property-card" data-location="abuja" data-type="rent">
-        <img
-          src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80"
-          alt="Contemporary residential property"
-          loading="lazy">
-
-        <div class="property-info">
-          <span class="property-tag">FOR RENT · DEMO</span>
-          <h3>Contemporary Apartment</h3>
-          <p class="location">📍 Abuja, Nigeria</p>
-          <p class="price">₦3,500,000/year</p>
-
-          <div class="property-details">
-            <span>🛏 3 Bedrooms</span>
-            <span>🛁 3 Bathrooms</span>
-          </div>
-
-          <a href="#sell" class="btn">Enquire About Property</a>
-        </div>
-      </article>
-
-      <article class="property-card" data-location="delta" data-type="buy">
-        <img
-          src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=800&q=80"
-          alt="Beautiful modern home"
-          loading="lazy">
-
-        <div class="property-info">
-          <span class="property-tag">FOR SALE · DEMO</span>
-          <h3>Beautiful Family Home</h3>
-          <p class="location">📍 Delta State, Nigeria</p>
-          <p class="price">₦35,000,000</p>
-
-          <div class="property-details">
-            <span>🛏 3 Bedrooms</span>
-            <span>🛁 3 Bathrooms</span>
-          </div>
-
-          <a href="#sell" class="btn">Enquire About Property</a>
-        </div>
-      </article>
-
-    </div>
-
-    <p class="note" id="searchMessage">
-      These are illustrative examples, not verified property offers.
-      Prices and availability must be confirmed before publication.
-    </p>
-  </section>
-
-  <section class="sell-banner" id="sell">
-    <div>
-      <h2>Have a Property to Sell or Rent?</h2>
-      <p>Our next development phase will let owners and agents submit listings.</p>
-    </div>
-
-    <a href="mailto:hello@naijaproperties.com?subject=Property%20Listing%20Enquiry"
-       class="btn btn-gold">
-      Contact Us
-    </a>
-  </section>
-
-  <footer>
-    <div class="logo" style="color:white">
-      NAIJA <span>PROPERTIES</span>
-    </div>
-
-    <p>Your Home, Your Investment.</p>
-    <p>Built for Nigeria. Designed for everyone.</p>
-    <p>© <span id="year"></span> Naija Properties</p>
-    <p>Demo website — listings are not yet verified.</p>
-  </footer>
-
+  <header><div class="logo">NAIJA <span>PROPERTIES</span></div><nav><a href="#home">Home</a><a href="#properties">Properties</a><a href="#buy">Buy</a><a href="#rent">Rent</a><a href="#sell">Sell</a><a href="#account" class="nav-button">Account / List Property</a></nav></header>
+  <section class="hero" id="home"><div class="hero-content"><span class="badge">YOUR TRUSTED PROPERTY DESTINATION</span><h1>Your Home,<br><span>Your Investment.</span></h1><p>Discover houses, apartments, land, and commercial properties across Nigeria. Your next property journey starts here.</p><div class="actions"><a href="#properties" class="btn btn-gold">Explore Properties</a><a href="#account" class="btn btn-white">List Your Property</a></div><form class="search-box" id="propertySearch"><input type="text" id="locationSearch" placeholder="Enter city, e.g. Lagos" aria-label="Search by location"><select id="propertyType" aria-label="Property type"><option value="">Buy or Rent?</option><option value="buy">Buy</option><option value="rent">Rent</option></select><button type="submit">Search</button></form></div></section>
+  <section class="section" id="properties"><div class="section-heading"><h2>Featured Properties</h2><p>Explore property examples from our planned marketplace.</p></div><div class="property-grid" id="propertyGrid">
+    <article class="property-card" data-location="lagos" data-type="buy"><img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80" alt="Modern luxury house" loading="lazy"><div class="property-info"><span class="property-tag">FOR SALE · DEMO</span><h3>Modern Family House</h3><p class="location">📍 Lagos, Nigeria</p><p class="price">₦85,000,000</p><div class="property-details"><span>🛏 4 Bedrooms</span><span>🛁 4 Bathrooms</span></div><a href="#account" class="btn">Enquire About Property</a></div></article>
+    <article class="property-card" data-location="abuja" data-type="rent"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80" alt="Contemporary residential property" loading="lazy"><div class="property-info"><span class="property-tag">FOR RENT · DEMO</span><h3>Contemporary Apartment</h3><p class="location">📍 Abuja, Nigeria</p><p class="price">₦3,500,000/year</p><div class="property-details"><span>🛏 3 Bedrooms</span><span>🛁 3 Bathrooms</span></div><a href="#account" class="btn">Enquire About Property</a></div></article>
+    <article class="property-card" data-location="delta" data-type="buy"><img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=800&q=80" alt="Beautiful modern home" loading="lazy"><div class="property-info"><span class="property-tag">FOR SALE · DEMO</span><h3>Beautiful Family Home</h3><p class="location">📍 Delta State, Nigeria</p><p class="price">₦35,000,000</p><div class="property-details"><span>🛏 3 Bedrooms</span><span>🛁 3 Bathrooms</span></div><a href="#account" class="btn">Enquire About Property</a></div></article>
+  </div><p class="note" id="searchMessage">These are illustrative examples, not verified property offers. Live listings will appear after the property database is set up.</p></section>
+  <section class="account-section" id="account"><h2>Join Naija Properties</h2><p>Create an account or sign in with your email. Property submissions will be enabled after the secure listings database is configured.</p><form id="authForm"><div class="account-form"><input type="email" id="authEmail" placeholder="Your email address" autocomplete="email" required><input type="password" id="authPassword" placeholder="Password (at least 6 characters)" autocomplete="current-password" minlength="6" required></div><div class="account-actions"><button class="primary-button" type="submit" id="signupButton">Create Account</button><button class="secondary-button" type="button" id="loginButton">Sign In</button><button class="secondary-button" type="button" id="logoutButton" hidden>Sign Out</button></div></form><div id="authMessage" class="status-message" role="status" aria-live="polite"></div><p id="accountStatus" style="margin-top:12px;margin-bottom:0">Connecting to the account service…</p></section>
+  <section class="sell-banner" id="sell"><div><h2>Have a Property to Sell or Rent?</h2><p>Sign in and get ready to list your property when seller submissions are activated.</p></div><a href="#account" class="btn btn-gold">Create Account / Sign In</a></section>
+  <footer><div class="logo" style="color:white">NAIJA <span>PROPERTIES</span></div><p>Your Home, Your Investment.</p><p>Built for Nigeria. Designed for everyone.</p><p>© <span id="year"></span> Naija Properties</p><p>Demo website — listings are not yet verified.</p></footer>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script>
-    document.getElementById("year").textContent =
-      new Date().getFullYear();
-
-    document.getElementById("propertySearch").addEventListener(
-      "submit",
-      function(event) {
-        event.preventDefault();
-
-        const location = document.getElementById("locationSearch")
-          .value.trim().toLowerCase();
-
-        const type = document.getElementById("propertyType").value;
-        const cards = document.querySelectorAll(".property-card");
-
-        let found = 0;
-
-        cards.forEach(function(card) {
-          const cardLocation = card.dataset.location;
-          const cardType = card.dataset.type;
-
-          const locationMatch =
-            !location || cardLocation.includes(location);
-
-          const typeMatch = !type || cardType === type;
-
-          if (locationMatch && typeMatch) {
-            card.style.display = "";
-            found++;
-          } else {
-            card.style.display = "none";
-          }
-        });
-
-        const message = document.getElementById("searchMessage");
-
-        if (found > 0) {
-          message.textContent =
-            found + " demo listing(s) match your search. " +
-            "These properties and prices have not been verified.";
-        } else {
-          message.textContent =
-            "No demo listings match your search. Try Lagos, Abuja, " +
-            "or Delta, or clear your search to see all examples.";
-        }
-
-        document.getElementById("properties").scrollIntoView({
-          behavior: "smooth"
-        });
-      }
-    );
+    "use strict";
+    document.getElementById("year").textContent = new Date().getFullYear();
+    // Safe for browser use: this is the project's publishable key, NOT a secret/service-role key.
+    const SUPABASE_URL = "https://wfsijovmcjkpirfsjxtt.supabase.co";
+    const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_Hf78m_x-HIhsFiyPQTz_Zw_isVipV_W";
+    const accountStatus = document.getElementById("accountStatus");
+    const authMessage = document.getElementById("authMessage");
+    const signupButton = document.getElementById("signupButton");
+    const loginButton = document.getElementById("loginButton");
+    const logoutButton = document.getElementById("logoutButton");
+    let supabaseClient = null;
+    function showAuthMessage(message, kind) { authMessage.textContent = message; authMessage.className = "status-message" + (kind ? " " + kind : ""); }
+    function updateAccountUI(user) {
+      if (user) { accountStatus.textContent = "Signed in as " + user.email + ". Property listing submissions are not active yet."; signupButton.hidden = true; loginButton.hidden = true; logoutButton.hidden = false; }
+      else { accountStatus.textContent = "You are not signed in. Create an account or sign in above."; signupButton.hidden = false; loginButton.hidden = false; logoutButton.hidden = true; }
+    }
+    if (!window.supabase || !window.supabase.createClient) {
+      accountStatus.textContent = "Could not load the account service. Check your internet connection and refresh.";
+      showAuthMessage("The Supabase library did not load. Please refresh when you have internet access.", "error");
+    } else {
+      supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
+      accountStatus.textContent = "Account service connected. Checking sign-in status…";
+      supabaseClient.auth.getSession().then(({data,error}) => { if (error) { accountStatus.textContent = "The account service responded, but session status could not be checked."; showAuthMessage(error.message,"error"); return; } updateAccountUI(data.session ? data.session.user : null); }).catch(() => { accountStatus.textContent = "Could not check your session. Please refresh and try again."; });
+      supabaseClient.auth.onAuthStateChange((_event,session) => updateAccountUI(session ? session.user : null));
+      document.getElementById("authForm").addEventListener("submit", async function(event) {
+        event.preventDefault(); const email = document.getElementById("authEmail").value.trim(); const password = document.getElementById("authPassword").value;
+        signupButton.disabled = true; loginButton.disabled = true; showAuthMessage("Creating your account…");
+        try { const {data,error} = await supabaseClient.auth.signUp({email,password}); if (error) throw error; if (data.session) showAuthMessage("Your account was created and you are signed in.","success"); else showAuthMessage("Registration submitted. Check your email for a confirmation link if email confirmation is enabled.","success"); }
+        catch(error) { showAuthMessage(error.message || "Could not create account. Please try again.","error"); }
+        finally { signupButton.disabled = false; loginButton.disabled = false; }
+      });
+      loginButton.addEventListener("click", async function() {
+        const email = document.getElementById("authEmail").value.trim(); const password = document.getElementById("authPassword").value;
+        if (!email || !password) { showAuthMessage("Enter your email and password first.","error"); return; }
+        loginButton.disabled = true; showAuthMessage("Signing in…");
+        try { const {error} = await supabaseClient.auth.signInWithPassword({email,password}); if (error) throw error; showAuthMessage("You are signed in successfully.","success"); }
+        catch(error) { showAuthMessage(error.message || "Could not sign in. Check your details and try again.","error"); }
+        finally { loginButton.disabled = false; }
+      });
+      logoutButton.addEventListener("click", async function() { logoutButton.disabled = true; try { const {error} = await supabaseClient.auth.signOut(); if (error) throw error; showAuthMessage("You have signed out.","success"); } catch(error) { showAuthMessage(error.message || "Could not sign out. Please try again.","error"); } finally { logoutButton.disabled = false; } });
+    }
+    document.getElementById("propertySearch").addEventListener("submit",function(event){
+      event.preventDefault(); const location = document.getElementById("locationSearch").value.trim().toLowerCase(); const type = document.getElementById("propertyType").value; const cards = document.querySelectorAll(".property-card"); let found = 0;
+      cards.forEach(function(card){const locationMatch = !location || card.dataset.location.includes(location); const typeMatch = !type || card.dataset.type === type; if(locationMatch && typeMatch){card.style.display="";found++;}else{card.style.display="none";}});
+      const message = document.getElementById("searchMessage"); message.textContent = found > 0 ? found + " demo listing(s) match your search. These sample properties and prices have not been verified." : "No demo listings match your search. Try Lagos, Abuja, or Delta, or clear your search to see all examples.";
+      document.getElementById("properties").scrollIntoView({behavior:"smooth"});
+    });
   </script>
-
 </body>
 </html>
